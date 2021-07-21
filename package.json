@@ -27,5 +27,8 @@
   },
   "devDependencies": {
     "gray-matter": "^4.0.3"
-  }
+  },
+  "resolutions": {
+    "imagemin-mozjpeg/mozjpeg": "^6.0.0"
+}
 }
