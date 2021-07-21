@@ -13,7 +13,7 @@ const Layout = ({ children, home }) => {
           <>
             <div className="flex justify-center">
               <img
-                src={require('../public/images/profile.jpg?webp')}
+                src={require('../public/images/profile.jpg')}
                 className="w-32 h-32 rounded-full"
                 alt={name}
               />
