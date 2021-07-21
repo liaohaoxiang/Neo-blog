@@ -1,65 +1,59 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import Head from "next/head";
+import { useState } from "react";
+import classNames from "classnames";
 
-export default function Home() {
+import Layout, { siteTitle } from "../component/layout";
+import BlogList from "../component/blogList";
+import Footer from "../component/footer";
+import { getSortedPostsData } from "../lib/posts";
+
+export default function Home({ allPostsData }) {
+  const navBar = ["Base", "Tech", "Life", "About"];
+  const [currentPath, setCurrentPath] = useState("Base");
+  const [currentActive, setCurrentActive] = useState(0);
   return (
-    <div className={styles.container}>
+    <Layout home>
       <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
+        <title>{siteTitle}</title>
       </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
+      <section>
+        <p className="flex justify-center my-4 text-xs sm:text-sm lg:text-lg  text-gray-700 ">
+          Record Life and Technology in this Blog.
         </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
+      </section>
+      <section>
+        {/* NavBar in index */}
+        <ul className="blog-list-ul nav__list-style-none">
+          {navBar.map((nav, index) => (
+            <li
+              key={index}
+              onClick={() => {
+                setCurrentPath(nav);
+                setCurrentActive(index);
+              }}
+              className={classNames("blog-list-li", {
+                "is-active": currentActive === index,
+              })}
+            >
+              {nav}
+            </li>
+          ))}
+        </ul>
+        {/* 展示blog内容,来源自lib/post的getSortedPostsData获取本地md文件展示 */}
+        <BlogList blogData={allPostsData} current={currentPath} />
+      </section>
+      <footer>
+        <Footer />
       </footer>
-    </div>
-  )
+    </Layout>
+  );
+}
+
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
 }
