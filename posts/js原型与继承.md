@@ -1,7 +1,7 @@
 ---
-title: '原型与继承'
+title: 'JS原型与继承'
 date: '2020-08-06'
-kind: 'Tech'
+kind: 'Base'
 ---
 
 明确概念 ： 

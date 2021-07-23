@@ -1,7 +1,7 @@
 ---
 title: 'Event Loop 事件循环' 
 date: '2020-07-03'
-kind: 'Tech'
+kind: 'Base'
 ---
 
 JavaScript 是单线程语言，单线程语言会存在**non-blocking**(阻塞)问题，Event Loop就是解决这个问题。
