@@ -1,6 +1,5 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import profile from '../public/images/profile.jpg';
 
 const name = 'Neo Holk';
 export const siteTitle = "Neo's Blog";
@@ -13,12 +12,10 @@ const Layout = ({ children, home }) => {
           <>
             <div className="flex justify-center"> 
               <Image
-                  src={profile}
-                  priority={true}
+                  src={'/images/profile.jpg'}
                   width={128}
                   height={128}
                   className="avatar"
-                  placeholder="blur"
                   alt={name}
                 />
                 <style jsx global>{`
