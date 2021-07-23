@@ -3,17 +3,20 @@
 @tailwind utilities;
 
 ul li {
-  list-style: inside;
-  margin: 18px 0;
-  /* padding-inline-start: 40px; */
-  -webkit-tap-highlight-color: transparent;
+  list-style: disc;
+  margin: 0px;
+}
+
+ol {
+  list-style: decimal;
+  margin: 0px;
 }
 
 .nav__list-style-none li{
   list-style: none;
 }
 
-a,a:hover,li:hover {
+a,a:hover, .blog-list-ul li:hover {
   color: #096BC8;
 }
 
