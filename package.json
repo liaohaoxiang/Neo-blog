@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "pm2": "next build && pm2 start npm --name 'neo-blog' -- run start"
   },
   "dependencies": {
     "autoprefixer": "^10.3.1",
