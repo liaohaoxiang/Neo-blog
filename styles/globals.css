@@ -12,6 +12,9 @@ ol {
   margin: 0px;
 }
 
+.blog_list-height {
+  min-height: 10rem;
+}
 .nav__list-style-none li{
   list-style: none;
 }
@@ -20,13 +23,17 @@ a,a:hover, .blog-list-ul li:hover {
   color: #096BC8;
 }
 
-.is-active {
-  /* background-color: #E6F7FF; */
-  color: #096BC8;
-}
 .blog-list-ul {
   @apply flex justify-around px-0
 }
 .blog-list-li {
-  @apply cursor-pointer p-4 m-0 text-gray-700
+  @apply cursor-pointer p-4 m-0 text-gray-700;;
+  margin: 18px 0;
+  list-style: inside;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.is-active {
+  /* background-color: #E6F7FF; */
+  color: #096BC8;
 }

@@ -6,7 +6,7 @@ export const siteTitle = "Neo's Blog";
 
 const Layout = ({ children, home }) => {
   return (
-    <div className="max-w-xxl px-4 py-0 mt-12 mx-auto mb-24">
+    <div className="min-h-full px-4 py-0 mt-8 mx-auto">
       <header className="flex flex-col items-center">
         {home ? (
           <>

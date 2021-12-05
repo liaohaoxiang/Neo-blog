@@ -4,7 +4,7 @@ const BlogList = ({ blogData,current }) => {
   const list = blogData.filter(item => item.kind === current)
   return (
     <>
-      <ul className="nav__list-style-none">
+      <ul className="nav__list-style-none blog_list-height">
         {list.map(({ id, date, title }) => (
           <li className="mt-5 p-0" key={id}>
             <Link href="/posts/[id]" as={`/posts/${id}`}>
